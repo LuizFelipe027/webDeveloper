@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Problema</h1>
+        <textarea name="Área" id="txtArea" cols="50" rows="10" maxlength="10"></textarea><br>
+        <div id="spancontainer"><p>Restam <span id="span"></span> caracteres!</p></div>
+    </div>
+   
+</body>
+    <script>
+        (function(){
+            'use strict';
+            
+            var $span = document.getElementById('span');
+            var $txtArea = document.getElementById('txtArea');
+            var $restacontainer = document.getElementById('spancontainer');
+            var maxima = $txtArea.maxLength;
+
+            function mostrarContainerResta(){
+
+                $restacontainer.style.display = 'block';
+
+            }
+            
+            mostrarContainerResta();
+            mostrarCaracterFaltantes(maxima);
+
+            $txtArea.addEventListener('input', checklength);
+            function checklength(e){
+
+                    var nmrCarac = this.value.length;
+                    var caracteresFaltantes = parseInt(maxima) - parseInt(nmrCarac);
+                    mostrarCaracterFaltantes(caracteresFaltantes);
+                
+            }
+
+            function mostrarCaracterFaltantes(n){
+
+                $span.textContent = n;
+            }
+
+
+            // $txtArea.addEventListener('input', checklength); //Vê tudo que foi adicionado
+            // $txtArea.addEventListener('keypress', keypress);
+            // $txtArea.addEventListener('keyup', keyup);
+            // $txtArea.addEventListener('keydown', keydown);
+            //
+            // function keypress(e){ 
+            //     console.log('Keypress', this.value); //Conta as vezes que pressionei uma letra ou Número.
+            // }
+            // function keyup(e){
+            //     console.log('Keyup', this.value); //Ouve quando a tecla deixou de ser apertada
+            // }
+            // function keydown(e){
+            //     console.log('Keydown', this.value); //Conta as teclas que foram apertadas
+            // }
+        })()
+    </script>
+</html>

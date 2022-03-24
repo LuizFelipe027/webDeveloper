@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Resoluções</title>
+    </head>
+    <body>
+
+        <h1 style="text-align: center;">Resoluções</h1>
+
+        <button onclick="funcao('for')">FOR</button>
+        <button onclick="funcao('while')">WHILE</button>
+        <button onclick="funcao('bissexto')">BISSEXTO</button>
+
+
+        <script>
+
+            function funcao(nome){
+
+                if(nome == 'bissexto'){
+                    for(var inicial = 1004; inicial <= 2017; inicial+=4){
+                            if(!(inicial % 100 == 0) || (inicial % 400 == 0)){
+                                document.write('Ano Bissexto: ' + inicial + '<br>')
+                            }
+                        }
+                }else{
+
+                var num = prompt('Número que será multiplicado');
+                num = parseInt(num);
+
+                var qt = prompt('Número de repetições:');
+                qt = parseInt(qt);
+
+                switch(nome){
+                    case 'for':
+                    document.write('FOR: <br>');
+                        for(var i = 1; i <= qt; i++){
+                           
+                            document.write(num + ' X ' + i + ' = ' + (num * i) + '<br>');
+                            
+                            if(i % 10 == 0){
+                                document.write('<hr>');
+                            }
+                            
+                        }
+                        break;
+                    
+                    case 'while':
+                        var j = 1;
+                        document.write('WHILE: <br>');
+                        while(j <= qt){
+                            
+                            document.write(num + ' X ' + j + ' = ' + (num * j) + '<br>');
+                            
+                            if(j % 10 == 0){
+                                document.write('<hr>');
+                            }
+
+                            j += 1;
+                            
+                        }
+                        break;
+
+                    }
+                }
+               
+            }
+            
+        </script>
+    </body>
+</html>

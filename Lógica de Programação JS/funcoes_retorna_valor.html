@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Triângulo</title>
+</head>
+<body style="text-align: center;">
+    <h1>TRIÂNGULO</h1>
+
+    <button onclick="areaDiv()" style="margin-inline: 5px;">Mostrar Resultado na Div</button>
+    <button onclick="areaAlert()" style="margin-inline: 5px;">Mostrar Resultado no Alert</button>
+
+    <div id="resultado" style="font-size: xx-large;"></div>
+
+</body>
+
+    <script>
+        function areaDiv(){
+            var base = prompt('Valor da base: ');
+            base = parseFloat(base);
+
+            var altura = prompt('Valor da Altura');
+            altura = parseFloat(altura);
+            var soma = somar(base, altura);
+            document.querySelector('#resultado').innerHTML = ('Área:' + soma);
+        }
+
+        function areaAlert(){
+            var base = prompt('Valor da base: ');
+            base = parseFloat(base);
+
+            var altura = prompt('Valor da Altura');
+            altura = parseFloat(altura);
+            
+            var soma = somar(base, altura); 
+            alert('Área do Triâmgulo: ' + soma);
+        }
+
+        function somar(b, a){
+            return (b * a) / 2;
+        }
+
+        
+            
+
+       
+        
+    </script>
+
+</html>

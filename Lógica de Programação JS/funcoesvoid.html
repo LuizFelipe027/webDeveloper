@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso</title>
+</head>
+<body>
+    <h1 style="text-align: center;">JavaSript</h1>
+    <div style="text-align: center; padding: 10px;">
+        <button onclick="criarTabuada()">Criar Tabuada</button>
+        <button onclick="limparTabuada()">Limpar Tabuada</button>
+    </div>   
+    
+    <div id="output"></div>
+
+    <script>
+
+        function criarTabuada(){
+            
+            var mensagem = '';
+            var outputt = document.querySelector('#output');
+
+            var num = prompt('Digite o número: ');
+            num = parseInt(num);
+
+            var rep = prompt('Número de repetições:')
+            rep = parseInt(rep);
+            
+            for(var i = 1; i <= rep; i++){
+                mensagem += (num + ' X ' + i + ' = ' + (num*i) + '<br>');
+            }
+
+            outputt.innerHTML = mensagem;
+        }
+
+        function limparTabuada(){
+            
+            output.innerHTML = '';
+
+        }
+
+        var output = document.querySelector('#output'); /*Para recuperar algo que esta em html no javascript, 
+                                                          *quando usa o queryselector ele ira recuperar qualquer 
+                                                          *um que tenha o id, classe ou tag que passar pelo parâmetro*/
+
+        
+        
+    </script>
+
+</body>
+</html>

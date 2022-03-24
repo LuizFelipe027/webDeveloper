@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try-Catch</title>
+</head>
+<body style="text-align: center;">
+
+    <h1 >Try Catch</h1>
+
+    <button onclick="dados()" style="margin: 10px;">Calcular Área do Triângulo</button>
+
+    <div id="resultado" style="font-size: xx-large;"></div>
+    
+</body>
+
+    <script>
+         dados();
+       
+       
+
+        function dados(){
+            try{
+            var base = prompt('BASE:');
+            base = parseFloat(base);
+            if(isNaN(base) == true){throw new ErrorEvent;}
+
+            var altura = prompt('ALTURA');
+            altura = parseFloat(altura);
+            if(isNaN(altura) == true){throw new ErrorEvent;}
+
+            
+            var calculado = area(base, altura);
+        }catch(e){
+            alert('Erro! Digite um Número válido!');
+            return dados();
+        }
+
+           
+        }
+
+        function area(l, h){
+
+            if(isNaN(l) || isNaN(h)){
+                throw new console.error('Digite um número válido!');
+            }
+
+            var area = (l * h) / 2;
+
+            return document.querySelector('#resultado').innerHTML = (area);
+        }
+    </script>
+
+</html>

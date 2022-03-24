@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 2</title>
+</head>
+<body>
+    <h1>Temporizadores - Desafio: Cronômetro</h1>
+    <div class="cro">
+        <input type="text" id="cronometro">
+        <button id="iniciar">Iniciar</button>
+        <button id="pausar">Pausar</button>
+        <button id="resetar">Resetar</button>
+
+    </div>
+</body>
+    <script>
+        (function(){
+           var $cronometro = document.getElementById('cronometro');
+           var $iniciar = document.getElementById('iniciar');
+           var $pausar = document.getElementById('pausar');
+           var $resetar = document.getElementById('resetar');
+
+           
+
+           $iniciar.addEventListener('click', start);
+           $pausar.addEventListener('click', pause);
+           $resetar.addEventListener('click', reset);
+
+           var intervalo = null;
+           var msClickInciar = 0;
+           var msClickPausar = 0;
+           var msTempoDecorrido = 0;
+           var rodando = false;
+
+           function start(){
+               
+               if(rodando){
+                   return
+               }else{
+                msClickInciar = Date.now();
+                iniciarCronometro()
+                rodando = true;
+               }
+                
+           }
+           
+
+           function pause(){
+               if(!$cronometro.value) return;
+                 
+               if(rodando){
+                    clearInterval(intervalo);
+                    msClickPausar = Date.now();
+                    msTempoDecorrido += (msClickPausar - msClickInciar);
+               }else{
+                   msClickInciar = Date.now();
+                   iniciarCronometro(msTempoDecorrido);
+               }
+                rodando = !rodando;
+           }
+
+           function reset(){
+                msClickInciar = 0;
+                msClickPausar = 0;
+                msTempoDecorrido = 0;
+                rodando = false;
+                clearInterval(intervalo);
+                $cronometro.value = '';
+           }
+
+
+           function iniciarCronometro(tempoDecorrido){
+               if(rodando){
+                   pause();
+               }
+               var _ms = tempoDecorrido || 0;
+               intervalo = setInterval(function(){
+                    var msAgora = Date.now();
+                    var diferenca = msAgora - msClickInciar;
+                    $cronometro.value = formataMs(diferenca + _ms);
+                }, 10)
+           }
+
+           function formataMs(ms){
+
+               const MINUTO = 60000;
+
+              if(ms < 1000){
+                  return ms;
+              }else if(ms < MINUTO){
+                   var s = ms/1000;
+                   s = parseInt(s);
+
+                   var c = ms - (s * 1000);
+
+                   return s < 10 ? "0" + s + ':' + c : s + ':' + c;
+              }else {
+                  var m = ms / (MINUTO);
+                  m = parseInt(m);
+
+                //   var s = ms / 1000 - (m * 60);
+                //   s = parseInt(s);
+                //   var c = ms - (s * 1000) - (m * MINUTO);
+
+                  if(m < 10){
+                      if(s < 10){
+                          return "0" + m + ':' + formataMs(ms - m * MINUTO);
+                      }
+                      return "0" + m + ':' + formataMs(ms - m * MINUTO);
+                  }
+              }
+           }
+        })()
+    </script>
+</html>

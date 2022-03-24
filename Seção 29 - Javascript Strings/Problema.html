@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema</title>
+</head>
+<body>
+    <div>
+        <h1>Problema</h1>
+
+        <input type="text" id="txt">
+        <button id="btn">Transformar</button>
+    </div>
+</body>
+    <script>
+        
+        (function(){
+            'use strict'
+
+            var nome = 'Luiz Felipe Ribeiro Paixão';
+            var nomeFormatado = formatarNome(nome);
+
+            console.log(nomeFormatado);
+
+            function formatarNome(nome){
+                var posicaoUltimoEspaco = nome.lastIndexOf(' ');
+                if(posicaoUltimoEspaco <= 0){
+                    return nome;
+                }
+
+                var ultimoNome = nome.slice(posicaoUltimoEspaco);
+                console.log('ultimoNome: ' + ultimoNome);
+
+                var primeiroNome = nome.slice(0, posicaoUltimoEspaco);
+                console.log('primeiroNome: ' + posicaoUltimoEspaco);
+
+                return ultimoNome + ', ' + primeiroNome;
+
+            }
+
+        })()
+    </script>
+</html>

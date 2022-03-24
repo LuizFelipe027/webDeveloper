@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizadores</title>
+</head>
+<body>
+    <h1>Temporizadores</h1>
+
+    <div >
+        <div class="banner">
+            <h2>Banner Irritante</h2>
+            <button class="banner_close">X</button>
+            <p>vários textos</p>
+        </div>
+    </div>
+</body>
+    <script>
+       (function(){
+            var $banner = document.querySelector('.banner');
+            var $bannerBtn = document.querySelector('.banner_close');
+            var intervaloEsconde = null;
+            $bannerBtn.addEventListener('click', escondeBanner);
+
+            function mostraBanner(){
+                $banner.style.display = 'block'
+                intervaloEsconde = setTimeout(escondeBanner, 4000);
+            }
+
+            function escondeBanner(){
+                $bannerBtn.removeEventListener('click', escondeBanner);
+                $banner.parentNode.removeChild($banner);
+
+                clearTimeout(intervaloEsconde);
+            }
+
+            setTimeout(mostraBanner, 2000);
+            
+       })()
+    </script>
+</html>

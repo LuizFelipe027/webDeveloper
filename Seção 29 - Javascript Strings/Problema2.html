@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema</title>
+</head>
+<body>
+    <div>
+        <h1>Problema</h1>
+
+        <textarea name="text" id="txtArea" cols="50" rows="15">Texto - Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</textarea>
+        <textarea name="text" id="txtTest" cols="50" rows="10"></textarea>
+    </div>
+</body>
+    <script>
+        var $txtArea = document.getElementById('txtArea');
+        var $txtTest = document.getElementById('txtTest');
+
+        console.log($txtArea.value.length)
+
+        if($txtArea.value.length > 200){
+            $txtTest.value = ($txtArea.value.slice(0, 200) + ' ...');
+        }
+    </script>
+</html>

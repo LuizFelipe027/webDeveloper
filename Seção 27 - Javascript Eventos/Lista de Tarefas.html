@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+
+    <style>
+        .done{
+            text-decoration: line-through;
+            color: #555;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>Lista de Tarefas</h2>
+        <input type="text" id="txtArea"><button id="btn">Acrescentar Tarefa</button>
+            <ul>
+                <li>Tarefa 1</li>
+                <li>Tarefa 2</li>
+                <li>Tarefa 3</li>
+            </ul>
+        
+    </div>
+</body>
+    <script>
+        (function(){
+            'use strict'
+            var toggle = "";
+            var $txt = document.getElementById('txtArea');
+            var $btn = document.getElementById('btn');
+            var $ul = document.querySelector('ul');
+            var $lis = $ul.querySelectorAll('li');
+           
+            
+            $btn.addEventListener('click', addTask);
+            $txt.addEventListener('keyup', function(e){ if(e.keyCode === 13){   addTask()   }  });
+            $ul.addEventListener('click', function(e){  
+                if(e.target.nodeName === 'LI'){ 
+                    toogleDone(e.target); 
+                    if(toggle === true){
+                        removeTask(e.target);
+                    }  
+                }   
+            })
+
+            function removeTask(li){
+                if(confirm('Deseja Excluir a tarefa:\n' + li.textContent + ' ?') === true){
+                    li.parentNode/*ul*/.removeChild(li);
+                }
+
+            }
+            
+            function toogleDone(li){
+                toggle = li.classList.toggle('done')
+                if(toggle === false){
+                    alert(li.textContent + ' Desfeita');
+                }else{
+                    alert(li.textContent + ' Concluída');
+                }
+            }
+
+            function addTask(){
+                if($txt.value === ''){
+                    alert('Escreva uma Tarefa!')
+                }else{  
+
+
+                var li = document.createElement('li'); //<li></li>
+                var text = document.createTextNode($txt.value);//"text.$txt.value"
+
+                li.appendChild(text);//<li>"text.$txt.value"</li>
+
+                $ul.appendChild(li);/*<ul>
+                                        ...
+                                        <li>...</li>
+                                        <li>...</li>
+                                        <li>"text.$txt.value"</li>
+                                      </ul>*/
+ 
+                $txt.value = '';
+                $txt.focus();
+
+               
+                }
+            }
+        })()
+    </script>
+</html>

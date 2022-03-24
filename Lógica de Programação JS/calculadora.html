@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body style="text-align: center;">
+    <h1>Calculadora</h1>
+
+    <div style="padding: 10px;">
+        <button onclick="simbolo('+')">+</button>
+        <button onclick="simbolo('-')">-</button>
+        <button onclick="simbolo('x')">X</button>
+        <button onclick="simbolo('/')">/</button>
+        </div>
+
+    <div id="resultado" style="font-size: x-large; padding-top: 5px;"></div>
+</body>
+
+    <script>
+        document.querySelector('#resultado').innerHTML = prompt('Número Inicial: ');
+
+        function simbolo(simbolo){
+            var num = document.querySelector('#resultado').textContent;
+            num = parseFloat(num);
+            
+            var num2 = prompt('Número 2: ');
+            num2 = parseFloat(num2);
+
+            try{
+                var msg = calcular(simbolo, num, num2);
+            } catch(e){
+                alert(e);
+                return;
+            }
+
+            
+
+            escreve(msg);
+        }
+
+        function escreve(rtd){
+            document.querySelector('#resultado').innerHTML = (rtd);
+        }
+ 
+        function calcular(simbolo, num, num2){
+            var nmrcalculado = null;
+            
+            if(isNaN(num) || isNaN(num2)){
+                throw new error('Passe um número como parâmetro!');
+            }
+
+            switch(simbolo){
+                case '+':                    
+                    nmrcalculado = num + num2;                
+                    break;
+
+                case '-':
+                    nmrcalculado = num - num2;
+                    break;
+                    
+                case 'x':                 
+                    nmrcalculado = num * num2;
+                    break;
+                    
+                case '/':                    
+                    nmrcalculado = num / num2;
+                    break;   
+            }
+            return nmrcalculado;
+        }
+
+    </script>
+
+</html>

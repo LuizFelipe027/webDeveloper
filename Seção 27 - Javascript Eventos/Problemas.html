@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema</title>
+</head>
+<body>
+    <h1>Problema</h1>
+
+    <form action="#" method="POST">
+        <label for="txtUser">Usuário: </label><input type="text" id="txtUser" name="user"><br>
+        <label for="txtPass">Senha: </label><input type="password" id="txtPass" name="pass"><br>
+        <button type="submit" id="btn">Enviar</button>
+    </form>
+</body>
+
+    <script>
+        (function(){
+            'use strict';
+            var $form = document.querySelector('form');
+            var $user = document.getElementById('txtUser');
+            var $pass = document.getElementById('txtPass');
+            var $btn = document.getElementById('btn');
+
+            $form.addEventListener('submit', function(e){
+                if(!$user.value || !$pass.value){
+                    alert('Usuário ou Senha inválidos, tente novamente!')
+                    e.preventDefault();
+                }else{
+                    alert('Tudo Certo')
+                }
+            });
+            
+        })()
+    </script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .destaque{
+            color: brown;
+        }
+    </style>
+    <title>Array - Problema</title>
+</head>
+<body>
+    <div>
+        <h1>Problema</h1>
+        <p>Lorem Ipsum é javascript simplesmente uma simulação de texto da indústria tipográfica e de impressos,
+             e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja 
+             de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não 
+             só a cinco séculos, como também ao salto javascript para a editoração eletrônica, permanecendo
+              essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou 
+              decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser 
+              integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
+
+        <p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. 
+            Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura 
+            latina clássica datada de 45 AC. Richard McClintock, um professor de latim do Hampden-Sydney 
+            College na Virginia, pesquisou uma das mais obscuras palavras em lat</p>
+
+        <p>É um fato conhecido de todos que um leitor fazer</p>
+    </div>
+</body>
+    <script>
+        var paragrafos = document.querySelectorAll('p');
+
+        for(var i = 0; i < paragrafos.length; i++){
+            var temJS = paragrafos[i].textContent.toLowerCase().indexOf('javascript') >= 0;
+            paragrafos[i].className = temJS ? 'destaque' : '';
+            
+            formatarParagrafo(paragrafos[i].innerHTML);
+        }
+
+        function formatarParagrafo(texto){
+            var arr = texto.split(' ');
+
+             if(arr.length > 10){
+                return arr.slice(0, 10).join(' ') + '...';
+             }else{
+                 return texto;
+             }
+            return;
+        }
+
+        
+    </script>
+</html>

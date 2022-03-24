@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <h1>Temporizadores - Desafio</h1>
+    <div class="relogio"></div>
+</body>
+    <script>
+        (function(){
+            var $relogio = document.querySelector('.relogio');
+            
+            setInterval(mostraRelogio, 1000);
+            
+
+            function mostraRelogio(){
+                var hora = formata(new Date().getHours());
+                var minuto = formata(new Date().getMinutes());
+                var segundos = formata(new Date().getSeconds());
+
+                $relogio.textContent = hora + ':' + minuto + ':' + segundos;
+            }
+
+            function formata(tempo){
+                return tempo < 10 ? "0" + tempo : tempo;
+            }
+        })()
+    </script>
+</html>

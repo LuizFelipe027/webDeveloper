@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+</head>
+<body>
+    
+</body>
+
+    <script>
+
+        var somar = somar(10,20);
+
+        console.log('Resultado: ' + somar);
+
+        function somar(n1, n2){
+            return n1 + n2;
+        }
+
+        somar.teste = 'Propriedade da Função';
+        console.log(teste);
+
+        var teste = function(f){f();}
+
+        teste(function(){console.log('Função passada por parâmetro');})
+
+        console.log('===============================================');
+
+        var x = 0; 
+
+        function mostraX(){
+            var x = 10;
+            console.log('Mostra x: ' + x) + 'Escopo local.';
+        }
+
+        mostraX();
+
+        console.log('Mostra x: ' + x) ;
+
+        //IFEE
+        (function(){
+            'use strict'; //Não permite que variáveis sem tipagem sejam criadas
+            var isValid = false;
+            console.log(isValid);
+
+            function somar(){
+
+                console.log(arguments); //Vai mostrar os arguementos que foram passados;
+                var result = 0;
+
+                for(var i = 0; i < arguments.length; i++){
+                    result += arguments[i];
+                }
+
+                console.log('Results: ' + result);
+            }
+
+            somar(10, 20, 30, 45);
+        })();
+
+        
+
+        
+
+
+
+
+    </script>
+
+</html>

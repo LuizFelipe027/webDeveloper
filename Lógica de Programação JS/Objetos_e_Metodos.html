@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+
+    <h1>Objetos</h1>
+
+    <div id="output"></div>
+
+</body>
+
+    <script>
+
+        var produtos = [{'nome': 'mouse', 'qtdEstoque': 20, 'preco': 50},
+                        {'nome': 'teclado', 'qtdEstoque': 40, 'preco': 80},
+                        {'nome': 'monitor', 'qtdEstoque': 30, 'preco': 500},
+        ]
+       
+        for(var i = 0; i < produtos.length; i++){
+            document.querySelector('#output').innerHTML +='<br>Nome: ' + produtos[i].nome + '<br> Preço: ' + produtos[i].preco + '<br> Quantidade em Estoque:' + produtos[i].qtdEstoque + '<br>';
+        }
+
+
+        produto.comprar = function(qtd){
+            if(!qtd){
+                qtd = 1;
+            }
+            console.log('Comprou Teclado');
+            this.qtdEstoque -= qtd;
+            console.log('Quantidade em Estoque: ' + this.qtdEstoque);
+        }
+
+       
+
+        
+    </script>
+
+</html>

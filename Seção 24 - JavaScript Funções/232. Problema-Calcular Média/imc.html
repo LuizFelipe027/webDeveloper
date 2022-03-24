@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+</head>
+<body>
+
+    <h1>Calcular IMC</h1>
+
+    <div id="output"></div>
+    
+</body>
+
+    <script>
+        (function(){
+            var imc = calculaImc();
+            var resultado = classificacao(imc);
+            
+            console.log(imc);
+            console.log('Classificação: ' + resultado + ' / IMC: ' + imc);
+
+
+
+           function calculaImc(){
+                var peso = prompt('Peso:');
+                peso = parseFloat(peso);
+                var altura = prompt('Altura:');
+                altura = parseFloat(altura);
+                
+                return peso / (altura * altura);
+           }
+
+           function classificacao(dados){
+                var string = '';
+
+                if(dados <= 16.9){
+                   return string = 'Muito Abaixo do peso';
+                }else if(dados <= 18.4){
+                    return string = 'Abaixo do Peso';
+                }else if(dados <= 24.9){
+                    return string = 'Peso Normal';
+                }else if(dados <= 29.9){
+                    return string = 'Acima do Peso';
+                }else if(dados <= 34.9){
+                    return string = 'Obesidade Grau I';
+                }else if(dados <= 40){
+                    return string = 'Obesidade Grau II';
+                }else {
+                    return string = 'Obesidade Grau III';
+                }
+
+               
+                
+           }
+
+        })();
+    </script>
+
+</html>

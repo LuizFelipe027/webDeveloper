@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <H1>PROBLEMA</H1>
+   
+</body>
+
+    <script>
+
+        var pessoa1 = new Object({'Nome': 'Luiz', 'Sobrenome': 'Paixão'});
+        var pessoa2 = new Object({'Nome': 'Felipe', 'Sobrenome': 'Ribeiro'});
+        var pessoa3 = new Object({'Nome': 'Allana', 'Sobrenome': 'dalton'});
+
+
+        var pessoas = new Array(pessoa1, pessoa2, pessoa3)
+      
+        mostra();
+        function mostra(){
+            
+            for(var i = 0; i < pessoas.length; i++){
+            console.log(pessoas[i].Nome + ' ' + pessoas[i].Sobrenome);
+            }       
+        }
+    </script>
+
+</html>

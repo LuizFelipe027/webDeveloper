@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Resoluções</title>
+    </head>
+    <body>
+
+        <h1 style="text-align: center;">Resoluções</h1>
+
+        <script>
+            retorna();
+
+            function retorna(){
+            var num = prompt('Número de 1 ao 6:');
+            num = parseInt(num);
+            if((num < 1) || (num > 6)){
+                alert('O número tem que estar entre os permitidos');
+                retorna();
+             }else{
+                 
+                switch(num){
+                case 1: 
+                    alert('Escolheu 1');
+                    retorna();
+                break;
+
+                case 2: 
+                    alert('Escolheu 2');
+                    retorna();
+                break;
+
+                case 3: 
+                    alert('Escolheu 3');
+                    retorna();
+                break;
+
+                case 4: 
+                    alert('Escolheu 4');
+                    retorna();
+                break;
+
+                case 5: 
+                    alert('Escolheu 5');
+                    retorna();
+                break;
+
+                case 6: 
+                    alert('Escolheu 6');
+                    retorna();
+                break;
+                // default: 
+                //      alert('O número tem que estar entre os permitidos');
+                // retorna();       
+            }
+                   }
+            }
+
+            
+
+        </script>
+    </body>
+</html>

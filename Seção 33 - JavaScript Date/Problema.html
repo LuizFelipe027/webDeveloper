@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <h1>Date - Problema</h1>
+
+
+</body>
+    <script>
+        
+            var dataAtual = new Date();
+            dataAtual.setHours(0);
+            dataAtual.setMinutes(0);
+            dataAtual.setSeconds(0);
+            dataAtual.setMilliseconds(0);
+
+            var dataNiver = new Date(dataAtual.getFullYear(), 10-1, 2);
+
+            var dataAtualTS = dataAtual.getTime();
+            var dataNiverTS = dataNiver.getTime();
+
+            if(dataNiverTS === dataAtualTS){
+                alert('PARABÉNS!')
+                
+            }
+
+
+            if(dataNiverTS < dataAtualTS){
+                dataNiver.setFullYear(++dataAtual.getFullYear());
+                dataNiverTS = dataNiver.getTime();
+            }
+
+            const UM_DIA_TS = 24*60*60*1000;
+            var diferenca = dataNiverTS - dataAtualTS;
+            console.log(diferenca / UM_DIA_TS);
+
+            console.log(formataData(dataNiver));
+
+            //DESAFIO//
+            function formataData(data){
+                var dia = data.getDate() < 10 ? ('0' + data.getDate()) : data.getDate();
+                
+                var mes = data.getMonth() + 1;
+                mes = mes < 10 ? ('0' + mes) : mes;
+
+                var formatada = (dia + ' / ' + mes + ' / ' + data.getFullYear())
+                return formatada;
+            }
+          
+    </script>
+</html>
